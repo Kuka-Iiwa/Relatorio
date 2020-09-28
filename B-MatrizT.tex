@@ -1,0 +1,87 @@
+A multiplicação das matrizes $n$ matrizes de transformação homogênea resulta em
+\begin{equation}
+    T_{n}^0 = \prod_{i=1}^n A_i = 
+    \left[
+    \begin{array}{ccc;{2pt/2pt}c}
+        r_{11} & r_{12} & r_{13} & d_x \\
+        r_{21} & r_{22} & r_{33} & d_y \\
+        r_{31} & r_{22} & r_{33} & d_z \\        \hdashline[2pt/2pt]
+             0 &      0 &      0 &    1
+    \end{array}
+    \right]
+\end{equation}
+na qual os termos são
+\begingroup
+\footnotesize
+\begin{flalign}
+    r_{11} =
+    \Bigg[\Big[ \left(\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 + s_2 s_4 c_1\right) c_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) s_5 \Big] c_6 + 
+    \left(\left(- s_1 s_3 + c_1 c_2 c_3\right) s_4 - s_2 c_1 c_4\right) s_6\Bigg] c_7 + \Bigg[- \Big[\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 \nonumber \\
+    %
+    %
+    + s_2 s_4 c_1\Big] s_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) c_5\Bigg] s_7 &&
+\end{flalign}
+\begin{flalign}
+    r_{12} = - \Bigg[\Big[\left(\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 + s_2 s_4 c_1\right) c_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) s_5\Big] c_6
+    + \left(\left(- s_1 s_3 + c_1 c_2 c_3\right) s_4 - s_2 c_1 c_4\right) s_6\Bigg] s_7 + \Bigg[- \Big[\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 \nonumber \\
+    %%
+    %%
+    + s_2 s_4 c_1\Big] s_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) c_5\Bigg] c_7 &&
+\end{flalign}
+\begin{flalign}
+r_{13} = 
+\Big[\left(\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 + s_2 s_4 c_1\right) c_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) s_5\Big] s_6 
+- \left(\left(- s_1 s_3 + c_1 c_2 c_3\right) s_4 - s_2 c_1 c_4\right) c_6 &&
+\end{flalign}
+\begin{flalign}
+    r_{21} = \Bigg[\Big[\left(\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 + s_1 s_2 s_4\right) c_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) s_5\Big] c_6
+    + \left(\left(s_1 c_2 c_3 + s_3 c_1\right) s_4 - s_1 s_2 c_4\right) s_6\Bigg] c_7 + \Bigg[- \Big[\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 \nonumber \\
+    %%
+    %%
+    + s_1 s_2 s_4\Big] s_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) c_5\Bigg] s_7 &&
+\end{flalign}
+\begin{flalign}
+    r_{22} = - \Bigg[\Big[\left(\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 + s_1 s_2 s_4\right) c_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) s_5\Big] c_6
+    + \left(\left(s_1 c_2 c_3 + s_3 c_1\right) s_4 - s_1 s_2 c_4\right) s_6\Bigg] s_7 + \Bigg[- \Big[\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 \nonumber \\
+    %%
+    %%
+    + s_1 s_2 s_4\Big] s_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) c_5 \Bigg] c_7 &&
+\end{flalign}
+\begin{flalign}
+    r_{23} = 
+    \Bigg[\Big[\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 + s_1 s_2 s_4\Big] c_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) s_5\Bigg] s_6
+    - \Big[\left(s_1 c_2 c_3 + s_3 c_1\right) s_4 - s_1 s_2 c_4\Big] c_6 &&
+\end{flalign}
+\begin{flalign}
+r_{31} =
+    \Big[\left(\left(- s_2 c_3 c_4 + s_4 c_2\right) c_5 + s_2 s_3 s_5\right) c_6 + \left(- s_2 s_4 c_3 - c_2 c_4\right) s_6\Big] c_7
+    + \Big[- \left(- s_2 c_3 c_4 + s_4 c_2\right) s_5 + s_2 s_3 c_5\Big] s_7 &&
+\end{flalign}
+\begin{flalign}
+r_{32} =
+    - \Big[\left(\left(- s_2 c_3 c_4 + s_4 c_2\right) c_5 + s_2 s_3 s_5\right) c_6 + \left(- s_2 s_4 c_3 - c_2 c_4\right) s_6\Big] s_7
+    + \Big[- \left(- s_2 c_3 c_4 + s_4 c_2\right) s_5 + s_2 s_3 c_5\Big] c_7 &&
+\end{flalign}
+\begin{flalign}
+r_{33} =
+    \Big[ \left(- s_2 c_3 c_4 + s_4 c_2\right) c_5 + s_2 s_3 s_5\Big] s_6 - \left(- s_2 s_4 c_3 - c_2 c_4\right) c_6 &&
+\end{flalign}
+    \begin{flalign}
+    d_{x} = 90 \Big[\left(\left(- s_1 s_3 + c_1 c_2 c_3\right) c_4 + s_2 s_4 c_1\right) c_5 + \left(- s_1 c_3 - s_3 c_1 c_2\right) s_5\Big] s_6
+    - 90 \Big[\left(- s_1 s_3 + c_1 c_2 c_3\right) s_4 - s_2 c_1 c_4\Big] c_6 - 400 \left(- s_1 s_3 + c_1 c_2 c_3\right) s_4 \nonumber \\
+    %%
+    %%
+    +400 s_2 c_1 c_4 + 420 s_2 c_1 &&
+\end{flalign}
+\begin{flalign}
+    d_y =
+    90 \Big[\left(\left(s_1 c_2 c_3 + s_3 c_1\right) c_4 + s_1 s_2 s_4\right) c_5 + \left(- s_1 s_3 c_2 + c_1 c_3\right) s_5 \Big] s_6
+    - 90 \Big[\left(s_1 c_2 c_3 + s_3 c_1\right) s_4 - s_1 s_2 c_4\Big] c_6 - 400 \left(s_1 c_2 c_3 + s_3 c_1\right) s_4 \nonumber \\
+    + 400 s_1 s_2 c_4 + 420 s_1 s_2 &&
+\end{flalign}
+\begin{flalign}
+    d_z = 90 \Big[\left(- s_2 c_3 c_4 + s_4 c_2\right) c_5 + s_2 s_3 s_5\Big] s_6 - 90 \left(- s_2 s_4 c_3 - c_2 c_4\right) c_6
+    + 400 s_2 s_4 c_3 + 400 c_2 c_4 + 420 c_2 + 360 &&
+\end{flalign}
+
+\endgroup

@@ -1,0 +1,149 @@
+\documentclass[a4paper]{ifacconf}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{siunitx}
+\usepackage{upgreek}
+\usepackage{natbib} % required for bibliography
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, exscale, tabstackengine}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{pdfpages}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+      \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+      \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+      \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+      \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+      \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+      \do\Y\do\Z}
+      
+\usepackage{svg}
+\usepackage{mathtools} %\coloneqq
+\usepackage{verbatim} %comentário em bloco
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{makecell}
+\usepackage{enumerate}
+\usepackage{epstopdf}
+\usepackage{arydshln}
+\usepackage{booktabs}
+\usepackage{icomma}
+\usepackage{pdfpages}
+\graphicspath{Imagem}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\DeclareMathOperator{\sen}{sen}
+\renewcommand{\sin}{\sen}
+\DeclareMathOperator{\Rot}{Rot}
+\DeclareMathOperator{\Trans}{Trans}
+
+%% Usado para código
+\usepackage{tcolorbox,courier}
+\tcbuselibrary{minted,breakable,xparse,skins}
+
+\definecolor{turquesa}{rgb}{0,169,191}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
+
+
+\pgfplotsset{compat=1.16}
+\pgfplotsset{width=8cm}
+\sisetup{output-decimal-marker = {,},%
+         inter-unit-product=\ensuremath{{\cdot}},}
+         % SI "," como separador,
+         % multiplicação usa \cdot
+
+
+\begin{document}
+\begin{frontmatter}
+
+\title{Modelagem Robô KUKA LBR iiwa} 
+% Title, preferably not more than 10 words.
+
+
+\author[First]{Adeilson C. Pereira},
+\author[First]{B. Bresolini},
+\author[First]{Felipe H. N. Resende},
+\author[First]{Ivna A. Bastos},
+\author[First]{Kassiany Geamonoud},
+\author[First]{Marcela O. Coelho},
+\author[First]{Otto G. B. de O. e Oliveira},
+\author[First]{Thalles O. Campagnani}
+
+
+\address[First]{Centro Federal de Educação Tecnológica de Minas Gerais, Divinópolis - MG.}
+
+\end{frontmatter}
+
+\section{Introdução}
+\input{1-introducao}
+\section{Descrição do Robô}
+\input{2-descricao}
+\section{Modelagem do Robô pelo método DH}
+\input{3-modelagem}
+\section{Validação do Modelo}
+\input{4-valiadacao}
+\section{Simulação}
+\input{5-simulacao}
+
+
+\bibliography{referencias}
+
+\appendix
+\onecolumn
+
+\section{Dimensões do robô}\label{apend:dim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Imagem/Dim.pdf}
+\end{figure}
+%\includepdf[pages=1]{Imagem/Dim.pdf}
+\section{Matriz de Transformação \ensuremath{T}}\label{apend:MatrizT}
+\input{B-MatrizT}
+
+\newpage
+\section{Memória de cálculo}\label{apend:memoria_calculo}
+A memória de cálculo foi realizava via código em \texttt{Python 3}, usando
+\input{Code}
+
+\end{document}
